@@ -18,9 +18,6 @@ public class PlayerHealth : MonoBehaviour
     public TextMeshProUGUI pieces;
     public float currentPieces = 0;
 
-    public float nbHealPotion = 10;
-
-    private bool isInCollision = false;
     private GameObject obj;
 
     void Start()
@@ -48,24 +45,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (obj != null)
         {
-            if (obj.CompareTag("Piece"))
-            {
-                currentPieces += 1;
-                Destroy(obj);
-                obj = null;
-            }
-
-            else if (obj.CompareTag("HealthPotion") && Input.GetKey(KeyCode.F))
-            {
-                currentHealth += nbHealPotion;
-                currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-                Destroy(obj);
-                obj = null;
-            }
-
-            else if (obj.CompareTag("Escaliers") && Input.GetKeyDown(KeyCode.F))
-            {
-                obj.GetComponent<EscDesc>().use(this.gameObject);
+            InterfaceItem interfaceItem = obj.GetComponent<InterfaceItem>();
+            if (interfaceItem != null) {
+                interfaceItem.use(this.gameObject);
             }
         }
         
@@ -95,13 +77,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isInCollision = true;
         obj = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        isInCollision = false;
         obj = null;
     }
 

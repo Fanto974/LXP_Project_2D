@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8979717728820214151}
   - component: {fileID: 3229967751049240968}
   - component: {fileID: 3909609381795611621}
-  - component: {fileID: 2209664631259835978}
   - component: {fileID: 8880062033783097534}
   - component: {fileID: 1873250425260402405}
+  - component: {fileID: 3487103257438309677}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -137,8 +137,44 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &2209664631259835978
-BoxCollider2D:
+--- !u!114 &8880062033783097534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272340170788047749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68c02f751af87e49a143fb021d196de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouvSpeed: 5
+  arrowPrefab: {fileID: 1258702984245298443, guid: 45a5d52ca48ceb940a70931463f58b8c, type: 3}
+  animator: {fileID: 3909609381795611621}
+  lastMoveDir: {x: 1, y: 0}
+  bonusDamage: 0
+--- !u!114 &1873250425260402405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272340170788047749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869189fbe76e550419643ee1a58d3d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 50
+  healthBarFill: {fileID: 0}
+  vie: {fileID: 0}
+  lerpSpeed: 5
+  pieces: {fileID: 0}
+  currentPieces: 0
+--- !u!70 &3487103257438309677
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,49 +205,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0005014464, y: -0.04362603}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.12242916, y: 0.19463775}
-  m_EdgeRadius: 0
---- !u!114 &8880062033783097534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8272340170788047749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c68c02f751af87e49a143fb021d196de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouvSpeed: 5
-  arrowPrefab: {fileID: 1258702984245298443, guid: 45a5d52ca48ceb940a70931463f58b8c, type: 3}
-  animator: {fileID: 3909609381795611621}
-  lastMoveDir: {x: 1, y: 0}
---- !u!114 &1873250425260402405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8272340170788047749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869189fbe76e550419643ee1a58d3d8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 50
-  healthBarFill: {fileID: 0}
-  vie: {fileID: 0}
-  lerpSpeed: 5
+  m_Offset: {x: -0.000000047683717, y: -0.06568986}
+  m_Size: {x: 0.07930451, y: 0.13847564}
+  m_Direction: 0

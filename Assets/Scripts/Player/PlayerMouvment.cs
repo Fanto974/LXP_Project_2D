@@ -15,6 +15,9 @@ public class PlayerMouvment : MonoBehaviour {
 
     public Vector2 lastMoveDir = Vector2.right;
 
+    public float bonusDamage = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +51,8 @@ public class PlayerMouvment : MonoBehaviour {
         yield return new WaitForSeconds(delay);
 
         float angle = Mathf.Atan2(lastMoveDir.y, lastMoveDir.x) * Mathf.Rad2Deg;
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.Euler(0, 0, angle - 45));
+        ArrowController arrow = Instantiate(arrowPrefab, transform.position, Quaternion.Euler(0, 0, angle - 45)).GetComponent<ArrowController>();
+        arrow.damage += bonusDamage;
     }
 
     private void FixedUpdate()

@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
     public Animator animator;
     public Transform target; // Player
-    public float speed = 5.0f;
+    public NavMeshAgent agent;
 
     public float damage = 5;
     public float health = 10;
@@ -12,16 +13,18 @@ public class EnemyController : MonoBehaviour
     public GameObject prefabPiece;
 
     private Vector2 moveDir;
+    private Vector2 oldPos;
 
     void Start()
     {
         target = GameObject.Find("Player").transform;
+        oldPos = transform.position;
     }
 
     void Update()
     {
         // Calcule la direction entre l'ennemi et le joueur
-        moveDir = (target.position - transform.position).normalized;
+        moveDir = ((Vector2)this.transform.position - oldPos).normalized;
 
         // Mets à jour les paramètres de l'animator
         animator.SetFloat("Horizontal", moveDir.x);
@@ -29,7 +32,9 @@ public class EnemyController : MonoBehaviour
         animator.SetFloat("Speed", moveDir.sqrMagnitude);
 
         // Déplace l'ennemi vers le joueur
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        agent.SetDestination(target.position);
+
+        oldPos = transform.position;
     }
 
     public void takeDamage(float damage)
