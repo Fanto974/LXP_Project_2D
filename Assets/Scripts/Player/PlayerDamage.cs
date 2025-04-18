@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         healthBarFill.fillAmount = displayedHealth / maxHealth;
         vie.text = Mathf.FloorToInt(displayedHealth).ToString() + " / " + Mathf.FloorToInt(maxHealth).ToString();
 
-        // Mise à jour des pieces
+        // Mise à jour des items
         pieces.text = Mathf.FloorToInt(currentPieces).ToString();
 
         if (obj != null)
@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
             InterfaceItem interfaceItem = obj.GetComponent<InterfaceItem>();
             if (interfaceItem != null) {
                 interfaceItem.use(this.gameObject);
+                obj = null;
             }
         }
         
@@ -70,14 +71,15 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        obj = collision.gameObject;
+        if (collision.gameObject.CompareTag("Piece"))
+        {
+            currentPieces++;
+            Destroy(collision.gameObject);
+        }
+        else
+            obj = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D other)
