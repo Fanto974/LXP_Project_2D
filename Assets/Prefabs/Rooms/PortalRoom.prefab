@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4594865107920609514}
   - component: {fileID: 423532247427100907}
   - component: {fileID: 6404535061891033074}
+  - component: {fileID: 7930501319309504972}
   m_Layer: 0
   m_Name: Portes
   m_TagString: Untagged
@@ -268,6 +269,42 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &7930501319309504972
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140495320798231537}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &4616477674313883821
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 5352349948603009350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.729671, y: 1.297344, z: 0.860752}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -359,6 +396,7 @@ GameObject:
   - component: {fileID: 4558218292384095618}
   - component: {fileID: 3431093961952381106}
   - component: {fileID: 3935822741505033074}
+  - component: {fileID: 2784213111751655573}
   m_Layer: 0
   m_Name: Murs
   m_TagString: Untagged
@@ -712,6 +750,42 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &2784213111751655573
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882848088740378617}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &9208642871588329429
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,11 +924,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3279456485716090999, guid: e527abba2c81afa42a43a8fe5a8143a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.073561
+      value: 9.57
       objectReference: {fileID: 0}
     - target: {fileID: 3279456485716090999, guid: e527abba2c81afa42a43a8fe5a8143a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7439852
+      value: -0.379
       objectReference: {fileID: 0}
     - target: {fileID: 3279456485716090999, guid: e527abba2c81afa42a43a8fe5a8143a5, type: 3}
       propertyPath: m_LocalPosition.z
