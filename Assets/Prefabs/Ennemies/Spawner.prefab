@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2864734554355478222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.01, y: 0.02, z: -0.07374833}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54,7 +54,7 @@ MonoBehaviour:
   ennemi: {fileID: 5932728887987893995, guid: 835a0d6800b82404cb60e3e148c39819, type: 3}
   nbEnnemisTot: 10
   nbEnnemisCur: 0
-  isActive: 0
+  wasActive: 0
   door: {fileID: 5689528329963480158}
 --- !u!61 &8070359150665320147
 BoxCollider2D:
@@ -315,7 +315,7 @@ Transform:
   m_GameObject: {fileID: 6832937945878419018}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.01, y: -0.02, z: 0.07374833}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
