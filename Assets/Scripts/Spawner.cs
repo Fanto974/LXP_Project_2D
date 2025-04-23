@@ -19,8 +19,8 @@ public class EnemySpawner : MonoBehaviour
     {
         door.gameObject.SetActive(false);
 
-        xRange = transform.position.x - transform.Find("XY").transform.position.x;
-        yRange = transform.position.y - transform.Find("XY").transform.position.y;
+        xRange = Mathf.Abs(transform.position.x - transform.Find("XY").transform.position.x);
+        yRange = Mathf.Abs(transform.position.y - transform.Find("XY").transform.position.y);
         
     }
 

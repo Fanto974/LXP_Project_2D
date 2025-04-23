@@ -24,8 +24,6 @@ public class LoaderLevel : MonoBehaviour
     // Positions
     public Vector2 currentPos;
 
-    // Offset entre chaque salle (ex : 20x20 unités)
-    public Vector2 roomOffset = new Vector2(20, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -42,50 +40,103 @@ public class LoaderLevel : MonoBehaviour
 
     public void GenerateRooms()
     {
-        Instantiate(spawnRoom, currentPos, Quaternion.identity);
+        Queue<GameObject> file = new Queue<GameObject>();
+        GameObject currentRoom = null;
 
-        // Avancer la position pour la prochaine salle
-        currentPos += roomOffset;
+        GameObject sr = Instantiate(spawnRoom, currentPos, Quaternion.identity);
+        file.Enqueue(sr);
 
-        // Génération jusqu’à atteindre le nombre max de chaque type de salle
-        while (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed)
+        while (file.Count > 0)
         {
-            // Choisir une salle au hasard
-            GameObject selectedRoom = null;
-
-            // Choisir un type en fonction des salles encore disponibles
-            int type = Random.Range(0, 3); // 0 = fight, 1 = item, 2 = chess
-
-            if (type == 0 && nbFightRooms < nbFightRoomsAllowed)
+            currentRoom = file.Dequeue();
+            if (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed)
             {
-                int nb = Random.Range(0, fightRoomPrefabs.Length);
-                selectedRoom = fightRoomPrefabs[nb]; // fight
-                nbFightRooms++;
-            }
-            else if (type == 1 && nbItemsRooms < nbItemsRoomsAllowed)
-            {
-                int nb = Random.Range(0, itemsRoomPrefabs.Length);
-                selectedRoom = itemsRoomPrefabs[nb]; // item
-                nbItemsRooms++;
-            }
-            else if (type == 2 && nbChessRooms < nbChessRoomsAllowed)
-            {
-                int nb = Random.Range(0, chessRoomPrefabs.Length);
-                selectedRoom = chessRoomPrefabs[nb]; // chess
-                nbChessRooms++;
+                GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
+                foreach (Transform porteTrans in portes.GetComponentsInChildren<Transform>())
+                {
+                    GameObject porte = porteTrans.gameObject;
+                    if (porte.activeSelf)
+                    {
+                        int chanceNewRoom = Random.Range(0, 5);
+                        if (chanceNewRoom == 0)
+                        {
+                            GameObject newRoom = null;
+                            if (porte.name == "PorteN")
+                            {
+                                newRoom = CreateRoom(new Vector2(0, 20), "PorteN");
+                            }
+                            if (porte.name == "PorteE")
+                            {
+                                newRoom = CreateRoom(new Vector2(20, 0), "PorteE");
+                            }
+                            if (porte.name == "PorteS")
+                            {
+                                newRoom = CreateRoom(new Vector2(0, -20), "PorteS");
+                            }
+                            if (porte.name == "PorteN")
+                            {
+                                newRoom = CreateRoom(new Vector2(-20, 0), "PorteN");
+                            }
+                            file.Enqueue(newRoom);
+                        }
+                    }
+                }
             }
             else
             {
-                continue; // retry avec une autre salle
+                return;
             }
-
-            // Placer la salle
-            Instantiate(selectedRoom, currentPos, Quaternion.identity);
-            currentPos += roomOffset; // avancer
         }
 
+
+        // Génération jusqu’à atteindre le nombre max de chaque type de salle
+        
         // Placer la salle de fin (portal)
         Instantiate(portalRoom, currentPos, Quaternion.identity);
+    }
+
+    public GameObject CreateRoom(Vector2 roomOffset, string entree)
+    {
+        // Choisir une salle au hasard
+        GameObject selectedRoom = null;
+
+        // Choisir un type en fonction des salles encore disponibles
+        int type = Random.Range(0, 3); // 0 = fight, 1 = item, 2 = chess
+
+        if (type == 0 && nbFightRooms < nbFightRoomsAllowed)
+        {
+            int nb = Random.Range(0, fightRoomPrefabs.Length);
+            selectedRoom = fightRoomPrefabs[nb]; // fight
+            nbFightRooms++;
+        }
+        else if (type == 1 && nbItemsRooms < nbItemsRoomsAllowed)
+        {
+            int nb = Random.Range(0, itemsRoomPrefabs.Length);
+            selectedRoom = itemsRoomPrefabs[nb]; // item
+            nbItemsRooms++;
+        }
+        else if (type == 2 && nbChessRooms < nbChessRoomsAllowed)
+        {
+            int nb = Random.Range(0, chessRoomPrefabs.Length);
+            selectedRoom = chessRoomPrefabs[nb]; // chess
+            nbChessRooms++;
+        }
+
+        // Placer la salle
+        currentPos += roomOffset; // avancer
+        GameObject currentRoom = Instantiate(selectedRoom, currentPos, Quaternion.identity);
+
+        GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
+        foreach (Transform porteTrans in portes.GetComponentsInChildren<Transform>())
+        {
+            GameObject porte = porteTrans.gameObject;
+            if (porte.name == entree)
+            {
+                porte.SetActive(false);
+            }
+        }
+
+        return currentRoom;
     }
 
 }
