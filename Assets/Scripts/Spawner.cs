@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        door.gameObject.SetActive(false);
+        //door.gameObject.SetActive(false);
 
         xRange = Mathf.Abs(transform.position.x - transform.Find("XY").transform.position.x);
         yRange = Mathf.Abs(transform.position.y - transform.Find("XY").transform.position.y);

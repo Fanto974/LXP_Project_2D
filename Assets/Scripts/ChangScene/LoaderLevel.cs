@@ -38,6 +38,9 @@ public class LoaderLevel : MonoBehaviour
         
     }
 
+
+
+
     public void GenerateRooms()
     {
         Queue<GameObject> file = new Queue<GameObject>();
@@ -78,6 +81,7 @@ public class LoaderLevel : MonoBehaviour
                                 {
                                     newRoom = CreateRoom(new Vector2(-20, 0), "PorteE");
                                 }
+                                porte.SetActive(false);
                                 file.Enqueue(newRoom);
                             }
                         }
@@ -89,13 +93,15 @@ public class LoaderLevel : MonoBehaviour
             }
             
         }
-
-
-        // Génération jusqu’à atteindre le nombre max de chaque type de salle
         
         // Placer la salle de fin (portal)
         Instantiate(portalRoom, currentPos, Quaternion.identity);
     }
+
+
+
+
+
 
     public GameObject CreateRoom(Vector2 roomOffset, string entree)
     {
@@ -135,11 +141,13 @@ public class LoaderLevel : MonoBehaviour
         GameObject currentRoom = Instantiate(selectedRoom, currentPos, Quaternion.identity);
 
         GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
+        portes.SetActive(true);
         Transform porte = portes.transform.Find(entree);
 
         if (porte != null && porte != portes.transform) // s'assurer que ce n'est pas "Portes"
         {
             porte.gameObject.SetActive(false);
+            print("Nom de la porte désacivée :" + porte.name);
         }
         else
         {
