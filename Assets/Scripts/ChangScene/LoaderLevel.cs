@@ -49,43 +49,45 @@ public class LoaderLevel : MonoBehaviour
         while (file.Count > 0)
         {
             currentRoom = file.Dequeue();
-            if (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed)
-            {
+            
                 GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
-                foreach (Transform porteTrans in portes.GetComponentsInChildren<Transform>())
+                foreach (Transform porteTrans in portes.transform)
                 {
-                    GameObject porte = porteTrans.gameObject;
-                    if (porte.activeSelf)
+                    if (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed)
                     {
-                        int chanceNewRoom = Random.Range(0, 5);
-                        if (chanceNewRoom == 0)
+                        GameObject porte = porteTrans.gameObject;
+                        if (porte.activeSelf)
                         {
-                            GameObject newRoom = null;
-                            if (porte.name == "PorteN")
+                            int chanceNewRoom = Random.Range(0, 5);
+                            if (chanceNewRoom == 0)
                             {
-                                newRoom = CreateRoom(new Vector2(0, 20), "PorteN");
+                                GameObject newRoom = null;
+                                if (porte.name == "PorteN")
+                                {
+                                    newRoom = CreateRoom(new Vector2(0, 20), "PorteS");
+                                }
+                                if (porte.name == "PorteE")
+                                {
+                                    newRoom = CreateRoom(new Vector2(20, 0), "PorteO");
+                                }
+                                if (porte.name == "PorteS")
+                                {
+                                    newRoom = CreateRoom(new Vector2(0, -20), "PorteN");
+                                }
+                                if (porte.name == "PorteO")
+                                {
+                                    newRoom = CreateRoom(new Vector2(-20, 0), "PorteE");
+                                }
+                                file.Enqueue(newRoom);
                             }
-                            if (porte.name == "PorteE")
-                            {
-                                newRoom = CreateRoom(new Vector2(20, 0), "PorteE");
-                            }
-                            if (porte.name == "PorteS")
-                            {
-                                newRoom = CreateRoom(new Vector2(0, -20), "PorteS");
-                            }
-                            if (porte.name == "PorteN")
-                            {
-                                newRoom = CreateRoom(new Vector2(-20, 0), "PorteN");
-                            }
-                            file.Enqueue(newRoom);
                         }
                     }
-                }
+                    else
+                    {
+                        return;
+                    }
             }
-            else
-            {
-                return;
-            }
+            
         }
 
 
@@ -97,45 +99,54 @@ public class LoaderLevel : MonoBehaviour
 
     public GameObject CreateRoom(Vector2 roomOffset, string entree)
     {
+        print(entree);
         // Choisir une salle au hasard
         GameObject selectedRoom = null;
 
         // Choisir un type en fonction des salles encore disponibles
-        int type = Random.Range(0, 3); // 0 = fight, 1 = item, 2 = chess
 
-        if (type == 0 && nbFightRooms < nbFightRoomsAllowed)
+        while (selectedRoom == null) 
         {
-            int nb = Random.Range(0, fightRoomPrefabs.Length);
-            selectedRoom = fightRoomPrefabs[nb]; // fight
-            nbFightRooms++;
+            int type = Random.Range(0, 3); // 0 = fight, 1 = item, 2 = chess
+
+            if (type == 0 && nbFightRooms < nbFightRoomsAllowed)
+            {
+                int nb = Random.Range(0, fightRoomPrefabs.Length);
+                selectedRoom = fightRoomPrefabs[nb]; // fight
+                nbFightRooms++;
+            }
+            else if (type == 1 && nbItemsRooms < nbItemsRoomsAllowed)
+            {
+                int nb = Random.Range(0, itemsRoomPrefabs.Length);
+                selectedRoom = itemsRoomPrefabs[nb]; // item
+                nbItemsRooms++;
+            }
+            else if (type == 2 && nbChessRooms < nbChessRoomsAllowed)
+            {
+                int nb = Random.Range(0, chessRoomPrefabs.Length);
+                selectedRoom = chessRoomPrefabs[nb]; // chess
+                nbChessRooms++;
+            }
         }
-        else if (type == 1 && nbItemsRooms < nbItemsRoomsAllowed)
-        {
-            int nb = Random.Range(0, itemsRoomPrefabs.Length);
-            selectedRoom = itemsRoomPrefabs[nb]; // item
-            nbItemsRooms++;
-        }
-        else if (type == 2 && nbChessRooms < nbChessRoomsAllowed)
-        {
-            int nb = Random.Range(0, chessRoomPrefabs.Length);
-            selectedRoom = chessRoomPrefabs[nb]; // chess
-            nbChessRooms++;
-        }
+        
 
         // Placer la salle
         currentPos += roomOffset; // avancer
         GameObject currentRoom = Instantiate(selectedRoom, currentPos, Quaternion.identity);
 
         GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
-        foreach (Transform porteTrans in portes.GetComponentsInChildren<Transform>())
+        Transform porte = portes.transform.Find(entree);
+
+        if (porte != null && porte != portes.transform) // s'assurer que ce n'est pas "Portes"
         {
-            GameObject porte = porteTrans.gameObject;
-            if (porte.name == entree)
-            {
-                porte.SetActive(false);
-            }
+            porte.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("La porte ciblée est le parent ou n'existe pas !");
         }
 
+        portes.SetActive(true);
         return currentRoom;
     }
 
