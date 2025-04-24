@@ -52,8 +52,9 @@ public class LoaderLevel : MonoBehaviour
         while (file.Count > 0)
         {
             currentRoom = file.Dequeue();
-            
-                GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
+            GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
+            do
+            {
                 foreach (Transform porteTrans in portes.transform)
                 {
                     if (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed)
@@ -61,25 +62,26 @@ public class LoaderLevel : MonoBehaviour
                         GameObject porte = porteTrans.gameObject;
                         if (porte.activeSelf)
                         {
-                            int chanceNewRoom = Random.Range(0, 5);
+                            int chanceNewRoom = Random.Range(0, 3);
                             if (chanceNewRoom == 0)
                             {
+                                currentPos = currentRoom.transform.position;
                                 GameObject newRoom = null;
                                 if (porte.name == "PorteN")
                                 {
-                                    newRoom = CreateRoom(new Vector2(0, 20), "PorteS");
+                                    newRoom = CreateRoom(new Vector2(0, 20), "PorteS", MurVertical);
                                 }
                                 if (porte.name == "PorteE")
                                 {
-                                    newRoom = CreateRoom(new Vector2(20, 0), "PorteO");
+                                    newRoom = CreateRoom(new Vector2(20, 0), "PorteO", MurHorizontal);
                                 }
                                 if (porte.name == "PorteS")
                                 {
-                                    newRoom = CreateRoom(new Vector2(0, -20), "PorteN");
+                                    newRoom = CreateRoom(new Vector2(0, -20), "PorteN", MurVertical);
                                 }
                                 if (porte.name == "PorteO")
                                 {
-                                    newRoom = CreateRoom(new Vector2(-20, 0), "PorteE");
+                                    newRoom = CreateRoom(new Vector2(-20, 0), "PorteE", MurHorizontal);
                                 }
                                 porte.SetActive(false);
                                 if (currentRoom.CompareTag("FightRoom"))
@@ -94,8 +96,9 @@ public class LoaderLevel : MonoBehaviour
                     {
                         return;
                     }
-            }
-            
+                }
+            } while (file.Count == 0 && nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed);
+                
         }
         
         // Placer la salle de fin (portal)
@@ -107,7 +110,7 @@ public class LoaderLevel : MonoBehaviour
 
 
 
-    public GameObject CreateRoom(Vector2 roomOffset, string entree)
+    public GameObject CreateRoom(Vector2 roomOffset, string entree, GameObject mur)
     {
         print(entree);
         // Choisir une salle au hasard
@@ -141,7 +144,9 @@ public class LoaderLevel : MonoBehaviour
         
 
         // Placer la salle
-        currentPos += roomOffset; // avancer
+        currentPos += roomOffset / 2; // avancer
+        Instantiate(mur, currentPos, Quaternion.identity);
+        currentPos += roomOffset / 2; // avancer
         GameObject currentRoom = Instantiate(selectedRoom, currentPos, Quaternion.identity);
 
         GameObject portes = currentRoom.transform.Find("Map/Portes").gameObject;
