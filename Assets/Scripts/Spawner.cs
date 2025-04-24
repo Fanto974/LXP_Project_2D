@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,12 +13,16 @@ public class EnemySpawner : MonoBehaviour
     public int nbEnnemisCur = 0;
 
     public bool wasActive = false;
-    public GameObject door;
+    public List<GameObject> doors = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //door.gameObject.SetActive(false);
+        for (int i = 0; i < doors.Count; i++)
+        {
+            doors[i].SetActive(false);
+        }
 
         xRange = Mathf.Abs(transform.position.x - transform.Find("XY").transform.position.x);
         yRange = Mathf.Abs(transform.position.y - transform.Find("XY").transform.position.y);
@@ -37,7 +42,11 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(ennemi, spawnPos, Quaternion.identity);
             nbEnnemisCur ++;
         }
-        door.gameObject.SetActive (false);
+        //door.gameObject.SetActive (false);
+        for (int i = 0; i < doors.Count; i++)
+        {
+            doors[i].SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +54,11 @@ public class EnemySpawner : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && wasActive == false)
         {
             StartCoroutine(SpawnRoutine());
-            door.gameObject.SetActive(true);
+            //door.gameObject.SetActive(true);
+            for (int i = 0; i < doors.Count; i++)
+            {
+                doors[i].SetActive(true);
+            }
             wasActive = true;
         }
     }

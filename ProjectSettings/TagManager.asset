@@ -9,6 +9,7 @@ TagManager:
   - Piece
   - HealthPotion
   - Escaliers
+  - FightRoom
   layers:
   - Default
   - TransparentFX

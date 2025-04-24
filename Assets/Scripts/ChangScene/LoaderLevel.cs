@@ -82,6 +82,10 @@ public class LoaderLevel : MonoBehaviour
                                     newRoom = CreateRoom(new Vector2(-20, 0), "PorteE");
                                 }
                                 porte.SetActive(false);
+                                if (currentRoom.CompareTag("FightRoom"))
+                                {
+                                    currentRoom.transform.Find("Spawner").gameObject.GetComponent<EnemySpawner>().doors.Add(porte);
+                                }
                                 file.Enqueue(newRoom);
                             }
                         }
@@ -147,7 +151,10 @@ public class LoaderLevel : MonoBehaviour
         if (porte != null && porte != portes.transform) // s'assurer que ce n'est pas "Portes"
         {
             porte.gameObject.SetActive(false);
-            print("Nom de la porte désacivée :" + porte.name);
+            if (currentRoom.CompareTag("FightRoom"))
+            {
+                currentRoom.transform.Find("Spawner").gameObject.GetComponent<EnemySpawner>().doors.Add(porte.gameObject);
+            }
         }
         else
         {
