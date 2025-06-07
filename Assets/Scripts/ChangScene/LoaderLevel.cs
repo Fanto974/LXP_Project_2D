@@ -9,9 +9,9 @@ public class LoaderLevel : MonoBehaviour
     public GameObject[] fightRoomPrefabs;
     public GameObject[] itemsRoomPrefabs;
     public GameObject[] chessRoomPrefabs;
+    public GameObject[] portalRoomPrefabs;
     private GameObject[] generatedRooms;
     public GameObject spawnRoom;
-    public GameObject portalRoom;
     public GameObject MurVertical;
     public GameObject MurHorizontal;
     // Compteurs de Salles
@@ -21,8 +21,11 @@ public class LoaderLevel : MonoBehaviour
     private int nbItemsRooms;
     public int nbChessRoomsAllowed;
     private int nbChessRooms;
+    public int nbPortalRoomsAllowed;
+    private int nbPortalRooms;
     // Positions
     public Vector2 currentPos;
+    private HashSet<Vector2> occupiedPos = new HashSet<Vector2>();
 
 
     // Start is called before the first frame update
@@ -47,6 +50,7 @@ public class LoaderLevel : MonoBehaviour
         GameObject currentRoom = null;
 
         GameObject sr = Instantiate(spawnRoom, currentPos, Quaternion.identity);
+        occupiedPos.Add(currentPos);
         file.Enqueue(sr);
 
         while (file.Count > 0)
@@ -57,7 +61,7 @@ public class LoaderLevel : MonoBehaviour
             {
                 foreach (Transform porteTrans in portes.transform)
                 {
-                    if (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed)
+                    if (nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed || nbPortalRooms < nbPortalRoomsAllowed)
                     {
                         GameObject porte = porteTrans.gameObject;
                         if (porte.activeSelf)
@@ -67,28 +71,50 @@ public class LoaderLevel : MonoBehaviour
                             {
                                 currentPos = currentRoom.transform.position;
                                 GameObject newRoom = null;
+                                Vector2 offset = new Vector2(0, 0);
+                                string door = "";
+                                GameObject wall = null;
+
                                 if (porte.name == "PorteN")
                                 {
-                                    newRoom = CreateRoom(new Vector2(0, 20), "PorteS", MurVertical);
+                                    offset = new Vector2(0, 20);
+                                    door = "PorteS";
+                                    wall = MurVertical;
                                 }
                                 if (porte.name == "PorteE")
                                 {
-                                    newRoom = CreateRoom(new Vector2(20, 0), "PorteO", MurHorizontal);
+                                    offset = new Vector2(20, 0);
+                                    door = "PorteO";
+                                    wall = MurHorizontal;
                                 }
                                 if (porte.name == "PorteS")
                                 {
-                                    newRoom = CreateRoom(new Vector2(0, -20), "PorteN", MurVertical);
+                                    offset = new Vector2(0, -20);
+                                    door = "PorteN";
+                                    wall = MurVertical;
                                 }
                                 if (porte.name == "PorteO")
                                 {
-                                    newRoom = CreateRoom(new Vector2(-20, 0), "PorteE", MurHorizontal);
+                                    offset = new Vector2(-20, 0);
+                                    door = "PorteE";
+                                    wall = MurHorizontal;
                                 }
-                                porte.SetActive(false);
-                                if (currentRoom.CompareTag("FightRoom"))
+
+                                Vector2 newRoomPos = (Vector2)currentRoom.transform.position + offset;
+
+                                if (!occupiedPos.Contains(newRoomPos))
                                 {
-                                    currentRoom.transform.Find("Spawner").gameObject.GetComponent<EnemySpawner>().doors.Add(porte);
+                                    newRoom = CreateRoom(offset, door, wall);
+                                    occupiedPos.Add(newRoomPos);
+                                    porte.SetActive(false);
+                                    if (currentRoom.CompareTag("FightRoom"))
+                                    {
+                                        currentRoom.transform.Find("Spawner").gameObject.GetComponent<EnemySpawner>().doors.Add(porte);
+                                    }
+                                    file.Enqueue(newRoom);
                                 }
-                                file.Enqueue(newRoom);
+
+                                
                             }
                         }
                     }
@@ -100,9 +126,7 @@ public class LoaderLevel : MonoBehaviour
             } while (file.Count == 0 && nbFightRooms < nbFightRoomsAllowed || nbItemsRooms < nbItemsRoomsAllowed || nbChessRooms < nbChessRoomsAllowed);
                 
         }
-        
-        // Placer la salle de fin (portal)
-        Instantiate(portalRoom, currentPos, Quaternion.identity);
+
     }
 
 
@@ -120,7 +144,7 @@ public class LoaderLevel : MonoBehaviour
 
         while (selectedRoom == null) 
         {
-            int type = Random.Range(0, 3); // 0 = fight, 1 = item, 2 = chess
+            int type = Random.Range(0, 4); // 0 = fight, 1 = item, 2 = chess
 
             if (type == 0 && nbFightRooms < nbFightRoomsAllowed)
             {
@@ -139,6 +163,12 @@ public class LoaderLevel : MonoBehaviour
                 int nb = Random.Range(0, chessRoomPrefabs.Length);
                 selectedRoom = chessRoomPrefabs[nb]; // chess
                 nbChessRooms++;
+            }
+            else if (type ==3 && nbPortalRooms < nbPortalRoomsAllowed)
+            {
+                int nb = Random.Range(0, portalRoomPrefabs.Length);
+                selectedRoom = portalRoomPrefabs[nb]; // portal
+                nbPortalRooms++;
             }
         }
         
