@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NavMeshPlus.Components;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoaderLevel : MonoBehaviour
 {
+    //NavMesh
+    public GameObject nav;
+    public NavMeshSurface surface;
+
     // Salles
     public GameObject[] fightRoomPrefabs;
     public GameObject[] itemsRoomPrefabs;
@@ -33,6 +39,8 @@ public class LoaderLevel : MonoBehaviour
     {
         currentPos = Vector2.zero;
         GenerateRooms();
+        surface = nav.GetComponent<NavMeshSurface>();
+        surface.BuildNavMesh();
     }
 
     // Update is called once per frame
