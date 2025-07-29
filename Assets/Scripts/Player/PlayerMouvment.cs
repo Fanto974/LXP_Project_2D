@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
@@ -14,6 +15,9 @@ public class PlayerMouvment : MonoBehaviour {
     public Animator animator;
 
     public Vector2 lastMoveDir = Vector2.right;
+    public float h;
+    public float v;
+    public bool isMoving;
 
     public float bonusDamage = 0;
 
@@ -30,11 +34,22 @@ public class PlayerMouvment : MonoBehaviour {
         mouvDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (mouvDirection != Vector2.zero)
             lastMoveDir = mouvDirection;
+        //Tests anim
+        //print("h:" + mouvDirection.x);
+        //print("v:" + mouvDirection.y);
+        print("s:" + mouvDirection.sqrMagnitude);
 
+        isMoving = mouvDirection.x != 0 || mouvDirection.y != 0;
 
-        animator.SetFloat("Horizontal", mouvDirection.x);
-        animator.SetFloat("Vertical", mouvDirection.y);
-        animator.SetFloat("Speed", mouvDirection.sqrMagnitude);
+        if (isMoving)
+        {
+            h = mouvDirection.x;
+            v = mouvDirection.y;
+        }
+
+        animator.SetFloat("Horizontal", h);
+        animator.SetFloat("Vertical", v);
+        animator.SetBool("isMoving", isMoving);
 
         if(Input.GetMouseButtonDown(0))
         {

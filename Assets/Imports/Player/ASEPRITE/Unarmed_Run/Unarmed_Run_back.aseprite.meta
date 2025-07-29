@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: 0a35d3bec41ebb844bbcb584952a2e0a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Unarmed_Run_back_Frame_0
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 150
+      height: 55
+    spriteID: 409a3391ce4ea474bbdb2f4bf37441d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Unarmed_Run_back_Frame_1
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 67
+      width: 150
+      height: 55
+    spriteID: b46a54a71a039364b99c799e72529ac7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 67}
+  - name: Unarmed_Run_back_Frame_2
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 130
+      width: 150
+      height: 55
+    spriteID: a8d7f3da7917c174889482a1e480fa0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 130}
+  - name: Unarmed_Run_back_Frame_3
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 193
+      width: 150
+      height: 55
+    spriteID: 6e3d8dda504085c4bb83f8f62715de35
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 193}
+  - name: Unarmed_Run_back_Frame_4
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 256
+      width: 150
+      height: 55
+    spriteID: b30ee4692b6a14d41975862910f9335e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 256}
+  - name: Unarmed_Run_back_Frame_5
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 319
+      width: 150
+      height: 55
+    spriteID: 9a19e62a4b12f4f4f9fd42d904c8575a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 319}
+  - name: Unarmed_Run_back_Frame_6
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 382
+      width: 150
+      height: 55
+    spriteID: 2242fa15ac606154d8993ced4df01ad4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 382}
+  - name: Unarmed_Run_back_Frame_7
+    originalName: 
+    pivot: {x: 0.08, y: 0.19999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 445
+      width: 150
+      height: 55
+    spriteID: 82f8bc3354370f04da493d9c90ed589f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 445}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1865761412
+    name: Unarmed_Run_back
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Unarmed_Run_back_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: 409a3391ce4ea474bbdb2f4bf37441d0
+    - name: Unarmed_Run_back_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: b46a54a71a039364b99c799e72529ac7
+    - name: Unarmed_Run_back_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: a8d7f3da7917c174889482a1e480fa0c
+    - name: Unarmed_Run_back_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: 6e3d8dda504085c4bb83f8f62715de35
+    - name: Unarmed_Run_back_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: b30ee4692b6a14d41975862910f9335e
+    - name: Unarmed_Run_back_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: 9a19e62a4b12f4f4f9fd42d904c8575a
+    - name: Unarmed_Run_back_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: 2242fa15ac606154d8993ced4df01ad4
+    - name: Unarmed_Run_back_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 20
+        y: -11
+        width: 150
+        height: 55
+      spriteId: 82f8bc3354370f04da493d9c90ed589f
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}
