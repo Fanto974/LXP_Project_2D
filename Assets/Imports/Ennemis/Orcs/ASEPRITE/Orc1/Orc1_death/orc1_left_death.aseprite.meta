@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: c5931dc2269569a41ae166247a4abd71
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: orc1_left_death_Frame_0
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 269
+      height: 192
+    spriteID: 9d82c2708f780134f86d19455971f796
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: orc1_left_death_Frame_1
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 281
+      y: 4
+      width: 269
+      height: 192
+    spriteID: 5b94c0e2a8583ef4688cfc1fee2198ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 281, y: 4}
+  - name: orc1_left_death_Frame_2
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 558
+      y: 4
+      width: 269
+      height: 192
+    spriteID: 2de952b3f8242a14f840d7e054b4c623
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 558, y: 4}
+  - name: orc1_left_death_Frame_3
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 204
+      width: 269
+      height: 192
+    spriteID: 6af9698e2b126a847a4c8917ac6132f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 204}
+  - name: orc1_left_death_Frame_4
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 281
+      y: 204
+      width: 269
+      height: 192
+    spriteID: 8186bab297780a04d884ae6cf2d4aacd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 281, y: 204}
+  - name: orc1_left_death_Frame_5
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 558
+      y: 204
+      width: 269
+      height: 192
+    spriteID: d6727c1920468b44f9ad4d1a293804dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 558, y: 204}
+  - name: orc1_left_death_Frame_6
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 404
+      width: 269
+      height: 192
+    spriteID: ccc1df52ca0a57a43a037b8d86b58817
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 404}
+  - name: orc1_left_death_Frame_7
+    originalName: 
+    pivot: {x: 0.35315984, y: 0.7395834}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 281
+      y: 404
+      width: 269
+      height: 192
+    spriteID: 236e0f6526bcd4e4289b29a9f0b77e44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 281, y: 404}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1201326684
+    name: orc1_left_death
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: orc1_left_death_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: 9d82c2708f780134f86d19455971f796
+    - name: orc1_left_death_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: 5b94c0e2a8583ef4688cfc1fee2198ca
+    - name: orc1_left_death_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: 2de952b3f8242a14f840d7e054b4c623
+    - name: orc1_left_death_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: 6af9698e2b126a847a4c8917ac6132f9
+    - name: orc1_left_death_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: 8186bab297780a04d884ae6cf2d4aacd
+    - name: orc1_left_death_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: d6727c1920468b44f9ad4d1a293804dc
+    - name: orc1_left_death_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: ccc1df52ca0a57a43a037b8d86b58817
+    - name: orc1_left_death_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -63
+        y: -142
+        width: 269
+        height: 192
+      spriteId: 236e0f6526bcd4e4289b29a9f0b77e44
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

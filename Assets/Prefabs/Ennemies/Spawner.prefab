@@ -50,11 +50,12 @@ MonoBehaviour:
   delayRange: 2
   xRange: 10
   yRange: 10
-  ennemi: {fileID: 5932728887987893995, guid: 835a0d6800b82404cb60e3e148c39819, type: 3}
+  ennemi:
+  - {fileID: 0}
   nbEnnemisTot: 10
   nbEnnemisCur: 0
   wasActive: 0
-  door: {fileID: 0}
+  doors: []
 --- !u!61 &8070359150665320147
 BoxCollider2D:
   m_ObjectHideFlags: 0
