@@ -1,11 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class EnemyController : MonoBehaviour
 {
     public Animator animator;
+    public float h;
+    public float v;
+    public bool isMoving;
+    public bool isAttacking = false;
+
     public Transform target; // Player
     public NavMeshAgent agent;
+
+    public float range = 2f;
 
     public float damage = 5;
     public float health = 10;
@@ -25,11 +33,31 @@ public class EnemyController : MonoBehaviour
     {
         // Calcule la direction entre l'ennemi et le joueur
         moveDir = ((Vector2)this.transform.position - oldPos).normalized;
+        // Calcul la distance entre l'ennemi et le joueur
+        float distance = Vector2.Distance(transform.position, target.position);
 
         // Mets à jour les paramètres de l'animator
-        animator.SetFloat("Horizontal", moveDir.x);
-        animator.SetFloat("Vertical", moveDir.y);
-        animator.SetFloat("Speed", moveDir.sqrMagnitude);
+        isMoving = moveDir.x != 0 || moveDir.y != 0;
+
+        if (isMoving)
+        {
+            h = moveDir.x;
+            v = moveDir.y;
+        }
+
+        if (distance <= range)
+        {
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+
+        animator.SetFloat("Horizontal", h);
+        animator.SetFloat("Vertical", v);
+        animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isAttacking", isAttacking);
 
         // Déplace l'ennemi vers le joueur
         agent.SetDestination(target.position);

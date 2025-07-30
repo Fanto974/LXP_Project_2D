@@ -54,7 +54,7 @@ public class PlayerMouvment : MonoBehaviour {
         if(Input.GetMouseButtonDown(0))
         {
             animator.SetBool("IsClicking", true);
-            StartCoroutine(ShootArrowDelayed(0.2f));
+            //StartCoroutine(ShootArrowDelayed(0.2f));  // Pour lancer une flèche
             
 
         }

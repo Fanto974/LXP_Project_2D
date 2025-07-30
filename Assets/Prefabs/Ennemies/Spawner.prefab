@@ -51,7 +51,7 @@ MonoBehaviour:
   xRange: 10
   yRange: 10
   ennemi:
-  - {fileID: 0}
+  - {fileID: 8240814027294387201, guid: 15653cf61f914884e874ef11d0681bde, type: 3}
   nbEnnemisTot: 10
   nbEnnemisCur: 0
   wasActive: 0
