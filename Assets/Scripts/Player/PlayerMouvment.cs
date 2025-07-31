@@ -37,7 +37,6 @@ public class PlayerMouvment : MonoBehaviour {
         //Tests anim
         //print("h:" + mouvDirection.x);
         //print("v:" + mouvDirection.y);
-        print("s:" + mouvDirection.sqrMagnitude);
 
         isMoving = mouvDirection.x != 0 || mouvDirection.y != 0;
 
