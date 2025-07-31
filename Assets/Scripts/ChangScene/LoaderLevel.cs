@@ -85,25 +85,25 @@ public class LoaderLevel : MonoBehaviour
 
                                 if (porte.name == "PorteN")
                                 {
-                                    offset = new Vector2(0, 20);
+                                    offset = new Vector2(0, 50);
                                     door = "PorteS";
                                     wall = MurVertical;
                                 }
                                 if (porte.name == "PorteE")
                                 {
-                                    offset = new Vector2(20, 0);
+                                    offset = new Vector2(50, 0);
                                     door = "PorteO";
                                     wall = MurHorizontal;
                                 }
                                 if (porte.name == "PorteS")
                                 {
-                                    offset = new Vector2(0, -20);
+                                    offset = new Vector2(0, -50);
                                     door = "PorteN";
                                     wall = MurVertical;
                                 }
                                 if (porte.name == "PorteO")
                                 {
-                                    offset = new Vector2(-20, 0);
+                                    offset = new Vector2(-50, 0);
                                     door = "PorteE";
                                     wall = MurHorizontal;
                                 }
