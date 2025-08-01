@@ -528636,8 +528636,6 @@ MonoBehaviour:
   surface: {fileID: 0}
   fightRoomPrefabs:
   - {fileID: 486574537809443431, guid: a8415b49509ef1c4c81d9b0b4c993d3a, type: 3}
-  - {fileID: 486574537809443431, guid: 9161a7c432837cf41bbf1cdb576ff775, type: 3}
-  - {fileID: 486574537809443431, guid: b4ccfe1a0fe57004e8dad6445e1ecf7f, type: 3}
   itemsRoomPrefabs: []
   chessRoomPrefabs: []
   portalRoomPrefabs:

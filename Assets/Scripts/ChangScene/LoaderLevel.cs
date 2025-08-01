@@ -115,10 +115,7 @@ public class LoaderLevel : MonoBehaviour
                                     newRoom = CreateRoom(offset, door, wall);
                                     occupiedPos.Add(newRoomPos);
                                     porte.SetActive(false);
-                                    if (currentRoom.CompareTag("FightRoom"))
-                                    {
-                                        currentRoom.transform.Find("Spawner").gameObject.GetComponent<EnemySpawner>().doors.Add(porte);
-                                    }
+
                                     file.Enqueue(newRoom);
                                 }
 
@@ -194,10 +191,7 @@ public class LoaderLevel : MonoBehaviour
         if (porte != null && porte != portes.transform) // s'assurer que ce n'est pas "Portes"
         {
             porte.gameObject.SetActive(false);
-            if (currentRoom.CompareTag("FightRoom"))
-            {
-                currentRoom.transform.Find("Spawner").gameObject.GetComponent<EnemySpawner>().doors.Add(porte.gameObject);
-            }
+
         }
         else
         {

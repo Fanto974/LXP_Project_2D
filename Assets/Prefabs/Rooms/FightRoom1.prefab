@@ -12021,21 +12021,25 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 4609077486614405989}
+    - target: {fileID: 8063065755739069044, guid: 0434075167ba6fb4687cadad6827c34a, type: 3}
+      propertyPath: doors
+      value: 
+      objectReference: {fileID: 4935583522271651437}
     - target: {fileID: 8070359150665320147, guid: 0434075167ba6fb4687cadad6827c34a, type: 3}
       propertyPath: m_Size.x
-      value: 9.201025
+      value: 26.050392
       objectReference: {fileID: 0}
     - target: {fileID: 8070359150665320147, guid: 0434075167ba6fb4687cadad6827c34a, type: 3}
       propertyPath: m_Size.y
-      value: 8.923548
+      value: 25.955782
       objectReference: {fileID: 0}
     - target: {fileID: 8070359150665320147, guid: 0434075167ba6fb4687cadad6827c34a, type: 3}
       propertyPath: m_Offset.x
-      value: 0.33914018
+      value: -0.17456055
       objectReference: {fileID: 0}
     - target: {fileID: 8070359150665320147, guid: 0434075167ba6fb4687cadad6827c34a, type: 3}
       propertyPath: m_Offset.y
-      value: 0.04624653
+      value: -0.456151
       objectReference: {fileID: 0}
     - target: {fileID: 8907392133234880138, guid: 0434075167ba6fb4687cadad6827c34a, type: 3}
       propertyPath: m_Size.x

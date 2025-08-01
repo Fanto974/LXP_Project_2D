@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -13,16 +14,13 @@ public class EnemySpawner : MonoBehaviour
     public int nbEnnemisCur = 0;
 
     public bool wasActive = false;
-    public List<GameObject> doors = new List<GameObject>();
+    public GameObject doors;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //door.gameObject.SetActive(false);
-        for (int i = 0; i < doors.Count; i++)
-        {
-            doors[i].SetActive(false);
-        }
+        doors.GetComponent<TilemapCollider2D>().isTrigger = true;
 
         xRange = Mathf.Abs(transform.position.x - transform.Find("XY").transform.position.x);
         yRange = Mathf.Abs(transform.position.y - transform.Find("XY").transform.position.y);
@@ -44,10 +42,7 @@ public class EnemySpawner : MonoBehaviour
             nbEnnemisCur ++;
         }
         //door.gameObject.SetActive (false);
-        for (int i = 0; i < doors.Count; i++)
-        {
-            doors[i].SetActive(false);
-        }
+        doors.GetComponent<TilemapCollider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,10 +51,7 @@ public class EnemySpawner : MonoBehaviour
         {
             StartCoroutine(SpawnRoutine());
             //door.gameObject.SetActive(true);
-            for (int i = 0; i < doors.Count; i++)
-            {
-                doors[i].SetActive(true);
-            }
+            doors.GetComponent<TilemapCollider2D>().isTrigger = false;
             wasActive = true;
         }
     }
