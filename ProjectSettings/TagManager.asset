@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ennemi
   - bullet
   - Piece
   - HealthPotion
   - Escaliers
   - FightRoom
+  - Enemy
   layers:
   - Default
   - TransparentFX

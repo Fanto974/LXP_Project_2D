@@ -5,22 +5,17 @@ using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerMouvment : MonoBehaviour { 
-
+    // Pour le mouvement
     public float mouvSpeed;
     private Rigidbody2D rb;
     private Vector2 mouvDirection;
 
-    public GameObject arrowPrefab;
-
+    // Pour les animations
     public Animator animator;
-
     public Vector2 lastMoveDir = Vector2.right;
     public float h;
     public float v;
     public bool isMoving;
-
-    public float bonusDamage = 0;
-
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +27,23 @@ public class PlayerMouvment : MonoBehaviour {
     void Update()
     {
         mouvDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        AnimMouv();
+    }
+
+    private void FixedUpdate()
+    {
+        Mouv();
+    }
+
+    public void Mouv()
+    {
+        rb.MovePosition(rb.position + mouvDirection * mouvSpeed * Time.fixedDeltaTime);
+    }
+
+    public void AnimMouv()
+    {
         if (mouvDirection != Vector2.zero)
             lastMoveDir = mouvDirection;
-        //Tests anim
-        //print("h:" + mouvDirection.x);
-        //print("v:" + mouvDirection.y);
 
         isMoving = mouvDirection.x != 0 || mouvDirection.y != 0;
 
@@ -49,28 +56,6 @@ public class PlayerMouvment : MonoBehaviour {
         animator.SetFloat("Horizontal", h);
         animator.SetFloat("Vertical", v);
         animator.SetBool("isMoving", isMoving);
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("IsClicking", true);
-            //StartCoroutine(ShootArrowDelayed(0.2f));  // Pour lancer une flèche
-            
-
-        }
-
-    }
-
-    IEnumerator ShootArrowDelayed(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        float angle = Mathf.Atan2(lastMoveDir.y, lastMoveDir.x) * Mathf.Rad2Deg;
-        ArrowController arrow = Instantiate(arrowPrefab, transform.position, Quaternion.Euler(0, 0, angle - 45)).GetComponent<ArrowController>();
-        arrow.damage += bonusDamage;
-    }
-
-    private void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + mouvDirection * mouvSpeed * Time.fixedDeltaTime);
+        GetComponent<PlayerAttack>().DPSZone.position = this.transform.position + (Vector3)lastMoveDir;
     }
 }

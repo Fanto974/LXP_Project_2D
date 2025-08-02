@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 796971882532317943}
   m_Layer: 0
   m_Name: Orc1
-  m_TagString: Ennemi
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,11 +151,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8091339084511424433}
+  h: 0
+  v: 0
+  isMoving: 0
+  isAttacking: 0
   target: {fileID: 2211952362934215061, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
   agent: {fileID: 1422017869353632854}
+  range: 2
   damage: 5
   health: 10
-  prefabPiece: {fileID: 0}
+  prefabPiece: {fileID: 6922094215134612710, guid: 0b6c7846db28e4b41987ee1efd2f2f36, type: 3}
 --- !u!195 &1422017869353632854
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagePlus : MonoBehaviour, InterfaceItem
-{
+public class DamagePlus : MonoBehaviour//, InterfaceItem
+{/*
     public float nbDamageMore = 1;
 
     // Start is called before the first frame update
@@ -25,5 +25,5 @@ public class DamagePlus : MonoBehaviour, InterfaceItem
             player.gameObject.GetComponent<PlayerMouvment>().bonusDamage += nbDamageMore;
             Destroy(this.gameObject);
         }
-    }
+    }*/
 }
