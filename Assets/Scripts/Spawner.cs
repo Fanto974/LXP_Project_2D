@@ -15,12 +15,18 @@ public class EnemySpawner : MonoBehaviour
 
     public bool wasActive = false;
     public GameObject doors;
+    public GameObject[] Grids;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //door.gameObject.SetActive(false);
         doors.GetComponent<TilemapCollider2D>().isTrigger = true;
+        
+        foreach (GameObject child in Grids)
+        {
+            child.GetComponent<Animator>().SetBool("IsFighting", false);
+        }
 
         xRange = Mathf.Abs(transform.position.x - transform.Find("XY").transform.position.x);
         yRange = Mathf.Abs(transform.position.y - transform.Find("XY").transform.position.y);
@@ -43,6 +49,10 @@ public class EnemySpawner : MonoBehaviour
         }
         //door.gameObject.SetActive (false);
         doors.GetComponent<TilemapCollider2D>().isTrigger = true;
+        foreach (GameObject child in Grids)
+        {
+            child.GetComponent<Animator>().SetBool("IsFighting", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +62,10 @@ public class EnemySpawner : MonoBehaviour
             StartCoroutine(SpawnRoutine());
             //door.gameObject.SetActive(true);
             doors.GetComponent<TilemapCollider2D>().isTrigger = false;
+            foreach (GameObject child in Grids)
+            {
+                child.GetComponent<Animator>().SetBool("IsFighting", true);
+            }
             wasActive = true;
         }
     }
