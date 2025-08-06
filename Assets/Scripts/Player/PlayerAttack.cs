@@ -22,8 +22,9 @@ public class PlayerAttack : MonoBehaviour
     // Pour les attaques
     public GameObject arrowPrefab;
     public Transform DPSZone;
-    private List<Collider2D> enemiesInZone = new List<Collider2D>();
     public int damage = 10;
+    public LayerMask enemyLayer;
+    public int range = 5;
 
 
 
@@ -56,22 +57,6 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Pour attaquer
-        if (other.CompareTag("Enemy") && !enemiesInZone.Contains(other))
-        {
-            enemiesInZone.Add(other);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (enemiesInZone.Contains(other))
-        {
-            enemiesInZone.Remove(other);
-        }
-    }
-
 
 
     // Autres
@@ -81,16 +66,14 @@ public class PlayerAttack : MonoBehaviour
     {
         animator.SetBool("IsClicking", true);
 
-        List<Collider2D> enemiesSnapshot = new List<Collider2D>(enemiesInZone);
+        // Détecter les ennemis dans la zone d’attaque
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(DPSZone.position, range, enemyLayer);
 
-        foreach (Collider2D enemy in enemiesSnapshot)
+        foreach (Collider2D enemy in hitEnemies)
         {
-            if (enemy != null)
-            {
-                EnemyController ec = enemy.GetComponent<EnemyController>();
-                if (ec != null)
-                    ec.takeDamage(damage);
-            }
+            EnemyController ec = enemy.GetComponent<EnemyController>();
+            if (ec != null)
+                ec.takeDamage(damage);
         }
     }
 
@@ -105,6 +88,14 @@ public class PlayerAttack : MonoBehaviour
         displayedHealth = Mathf.Lerp(displayedHealth, currentHealth, Time.deltaTime * lerpSpeed);
         healthBarFill.fillAmount = displayedHealth / maxHealth;
         vie.text = Mathf.FloorToInt(displayedHealth).ToString() + " / " + Mathf.FloorToInt(maxHealth).ToString();
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (DPSZone == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(DPSZone.position, range);
     }
 
     /*

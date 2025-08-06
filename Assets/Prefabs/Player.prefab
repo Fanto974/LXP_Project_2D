@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4203846143058465741}
-  - component: {fileID: 8595708317157303657}
+  - component: {fileID: 6682098334972998291}
   m_Layer: 0
   m_Name: PtAtt
   m_TagString: Untagged
@@ -32,8 +32,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2211952362934215061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!58 &8595708317157303657
-CircleCollider2D:
+--- !u!70 &6682098334972998291
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -64,9 +64,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.6087964
+  m_Offset: {x: 0.14752093, y: 0}
+  m_Size: {x: 1.3604989, y: 1.7932369}
+  m_Direction: 0
 --- !u!1 &8272340170788047749
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 8272340170788047749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.97, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -260,6 +260,10 @@ MonoBehaviour:
   arrowPrefab: {fileID: 1068231550456693747}
   DPSZone: {fileID: 0}
   damage: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  range: 5
 --- !u!70 &3487103257438309677
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
