@@ -77,6 +77,10 @@ public class EnemyController : MonoBehaviour
         if (this.health <= 0) {
             StartCoroutine(Mort(10));
         }
+        else
+        {
+            animator.SetTrigger("IsTakingDamage");
+        }
     }
 
     IEnumerator Mort(float secondes)
