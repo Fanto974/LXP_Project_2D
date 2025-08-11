@@ -1,0 +1,43 @@
+using UnityEngine;
+using UnityEngine.SceneManagement; // si tu veux changer de scène
+
+public class PauseMenu : MonoBehaviour
+{
+    public GameObject pauseMenuUI;
+    public bool isPaused = false;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) // ou KeyCode.P
+        {
+            if (isPaused)
+                Resume();
+            else
+                Pause();
+        }
+    }
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f; // Reprend le temps
+        isPaused = false;
+    }
+
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f; // Fige le temps
+        isPaused = true;
+    }
+
+    public void QuitGame()
+    {
+        // Si tu veux revenir au menu principal
+        // SceneManager.LoadScene("MainMenu");
+
+        // Si tu veux juste quitter
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
+}
