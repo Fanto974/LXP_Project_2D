@@ -1,10 +1,22 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement; // si tu veux changer de scène
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; // si tu veux changer de scène
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public bool isPaused = false;
+
+    public Button ResumeButton;
+    public Button QuitButton;
+
+    private void Start()
+    {
+        pauseMenuUI.SetActive(false);
+        ResumeButton.onClick.AddListener(Resume);
+        QuitButton.onClick.AddListener(QuitGame);
+    }
 
     void Update()
     {
@@ -14,6 +26,11 @@ public class PauseMenu : MonoBehaviour
                 Resume();
             else
                 Pause();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            //
         }
     }
 
@@ -40,4 +57,5 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit Game");
     }
+
 }
