@@ -58,4 +58,9 @@ public class PlayerMouvment : MonoBehaviour {
         animator.SetBool("isMoving", isMoving);
         GetComponent<PlayerAttack>().DPSZone.position = this.transform.position + (Vector3)lastMoveDir;
     }
+
+    public void GainSpeed(float speed)
+    {
+        mouvSpeed += speed;
+    }
 }
