@@ -6,7 +6,7 @@ public class ShopStand : MonoBehaviour
     public ShopItem item; // L’objet vendu sur ce stand
     private GameObject itemGO;
     public Vector3 itemOffset = new Vector3(0, 1f, 0);
-    public Vector3 itemScale = new Vector3(5f, 5f, 5f);
+    public Vector3 itemScale = new Vector3(1f, 1f, 1f);
     public Vector3 standScale = new Vector3(1f, 1f, 1f);
 
     private bool isPlayerNearby = false;
@@ -63,8 +63,16 @@ public class ShopStand : MonoBehaviour
     {
         if (player.CanAfford(item.price))
         {
+            // Dépenser l'argent
             player.SpendCoins(item.price);
-            player.AddItem(item);
+
+            // Ajout à l'inventaire si l'effet est définitif
+            if (item.isTheEffectDefinitive) 
+            {
+                player.AddItem(item);
+            }
+
+            // Applique l'effet de l'item au joueur
             item.ApplyEffect(player);
             Debug.Log("Acheté : " + item.itemName);
 

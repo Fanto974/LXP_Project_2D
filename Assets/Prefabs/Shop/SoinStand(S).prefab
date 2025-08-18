@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2108578016510274782}
   - component: {fileID: 8489323284140177221}
   m_Layer: 0
-  m_Name: PotionStand(S)
+  m_Name: SoinStand(S)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,10 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemGO: {fileID: 0}
-  itemOffset: {x: 0, y: 1, z: 0}
-  itemScale: {x: 5, y: 5, z: 5}
-  standScale: {x: 1, y: 1, z: 1}
+  itemOffset: {x: 0, y: 0.05, z: 0}
+  itemScale: {x: 1, y: 1, z: 1}
+  standScale: {x: 4, y: 4, z: 4}
 --- !u!61 &2108578016510274782
 BoxCollider2D:
   m_ObjectHideFlags: 0

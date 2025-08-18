@@ -86,7 +86,22 @@ public class PlayerAttack : MonoBehaviour
     public void Heal(float amount)
     {
         currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+
+    public void GainHealth(float amount)
+    {
+        currentHealth += amount;
+        maxHealth += amount;
+    }
+
+    public void GainDamage(int amount)
+    {
+        damage += amount;
     }
 
     public void UpdateHealthBar()
