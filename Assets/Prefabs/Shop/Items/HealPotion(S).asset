@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   price: 0
-  icon: {fileID: -1542370863, guid: 9cd23af32856c154ba62fa077822aa78, type: 3}
+  icon: {fileID: 21300000, guid: 42b8a39da0d7cb94890c95f10f4ba12f, type: 3}
+  isTheEffectDefinitive: 0
   healAmount: 5
   manaAmount: 0
-  speed: 0
