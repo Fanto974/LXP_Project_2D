@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPotion", menuName = "Shop/Amélioration")]
 public class Améliorations : ShopItem
 {
+    public bool isTop = true;
     public int healthAmount = 0;
     public int manaAmount = 0;
     public int speedAmount = 0;

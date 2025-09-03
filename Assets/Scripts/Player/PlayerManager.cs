@@ -27,6 +27,12 @@ public class PlayerManager : MonoBehaviour
     {
         // Mettre à jour le nombre de Pièces
         UpdateNbGold();
+
+        //Afficher les Buffs d'inventaires !
+        // ??
+
+        //Afficher les compétences d'inventaires !
+        // ??
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
