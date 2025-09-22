@@ -68,6 +68,8 @@ public class PlayerManager : MonoBehaviour
     public void AddItem(ShopItem item)
     {
         inventory.Add(item);
+        PauseMenu pauseMenu = FindObjectOfType<PauseMenu>();
+        pauseMenu.RefreshInventoryUI();
         // Tu peux ajouter ici des effets (arme, potion…)
     }
 }

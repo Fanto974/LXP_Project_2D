@@ -9,5 +9,6 @@ public class PotionItem : ShopItem
     public override void ApplyEffect(PlayerManager player)
     {
         player.attack.Heal(healAmount);
+        //Il manque healMana
     }
 }

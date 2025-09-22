@@ -11,11 +11,18 @@ public class PauseMenu : MonoBehaviour
     public Button ResumeButton;
     public Button QuitButton;
 
+    //Inventaire
+    public GameObject LogementInventaire;
+    public Transform inventoryPanel;
+
     private void Start()
     {
         pauseMenuUI.SetActive(false);
         ResumeButton.onClick.AddListener(Resume);
         QuitButton.onClick.AddListener(QuitGame);
+
+        //tests
+        // Instantiate(LogementInventaire, pauseMenuUI.transform);
     }
 
     void Update()
@@ -56,6 +63,23 @@ public class PauseMenu : MonoBehaviour
         // Si tu veux juste quitter
         Application.Quit();
         Debug.Log("Quit Game");
+    }
+
+    public void RefreshInventoryUI()
+    {
+        // Supprime les anciens slots
+        foreach (Transform child in inventoryPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Instantie les items de l’inventaire du joueur
+        PlayerManager player = FindObjectOfType<PlayerManager>();
+        foreach (ShopItem item in player.inventory)
+        {
+            GameObject logement = Instantiate(LogementInventaire, inventoryPanel);
+            logement.transform.Find("Icon").GetComponent<Image>().sprite = item.icon;
+        }
     }
 
 }
