@@ -6,18 +6,17 @@ using Unity.VisualScripting;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerAttack : MonoBehaviour
 {
     public Animator animator;
 
     // Pour la vie
-    public float maxHealth = 100f;
-    public float currentHealth;
-    private float displayedHealth;
-    public Image healthBarFill;
-    public TextMeshProUGUI vie;
-    public float lerpSpeed = 5f;
+    public int maxHealth = 10;
+    public int currentHealth;
+    public Image healthBarImage;
+    public Sprite[] healthSprites;
 
     // Pour les attaques
     public GameObject arrowPrefab;
@@ -25,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     public int damage = 10;
     public LayerMask enemyLayer;
     public int range = 5;
+    public List<AttackEffect> attackEffects = new List<AttackEffect>();
 
 
 
@@ -35,14 +35,11 @@ public class PlayerAttack : MonoBehaviour
     {
         DPSZone = this.transform.Find("PtAtt");
         currentHealth = maxHealth;
-        displayedHealth = maxHealth;
-        vie.text = Mathf.FloorToInt(maxHealth).ToString() + " / " + Mathf.FloorToInt(maxHealth).ToString();
+        UpdateHealthBar();
     }
 
     void Update()
     {
-        // Pour mettre à jour la barre de vie
-        UpdateHealthBar();
 
         // Pour attaquer
         if (Input.GetMouseButtonDown(0))
@@ -53,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
         // Pour tester : appuyez sur H pour perdre 10 points de vie
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(10f);
+            TakeDamage(1);
         }
     }
 
@@ -71,19 +68,25 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            EnemyController ec = enemy.GetComponent<EnemyController>();
+            IEffectReceiver ec = enemy.GetComponent<IEffectReceiver>();
             if (ec != null)
+            {
                 ec.takeDamage(damage);
+                foreach (var effect in attackEffects)
+                {
+                    effect.Apply(ec);
+                }
+            }
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHealthBar();
     }
 
-    public void Heal(float amount)
+    public void Heal(int amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth)
@@ -93,7 +96,7 @@ public class PlayerAttack : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
 
-    public void GainHealth(float amount)
+    public void GainHealth(int amount)
     {
         currentHealth += amount;
         maxHealth += amount;
@@ -106,9 +109,15 @@ public class PlayerAttack : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        displayedHealth = Mathf.Lerp(displayedHealth, currentHealth, Time.deltaTime * lerpSpeed);
-        healthBarFill.fillAmount = displayedHealth / maxHealth;
-        vie.text = Mathf.FloorToInt(displayedHealth).ToString() + " / " + Mathf.FloorToInt(maxHealth).ToString();
+        print($"UpdateHealthBar call | currentHealth={currentHealth}, healthSprites.Length={healthSprites.Length}");
+
+        print("fonctcall");
+        // Sécurité : éviter erreurs si sprites manquants
+        if (currentHealth >= 0 && currentHealth < healthSprites.Length)
+        {
+            print("fefsef");
+            healthBarImage.sprite = healthSprites[currentHealth];
+        }
     }
 
     void OnDrawGizmosSelected()

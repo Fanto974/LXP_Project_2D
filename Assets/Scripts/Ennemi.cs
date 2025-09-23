@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using System.Collections;
 
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IEffectReceiver
 {
     public Animator animator;
     public float h;
@@ -17,8 +17,8 @@ public class EnemyController : MonoBehaviour
 
     public float range = 2f;
 
-    public float damage = 5;
-    public float health = 10;
+    public int damage = 5;
+    public int health = 10;
 
     public GameObject prefabPiece;
 
@@ -71,16 +71,21 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    public void takeDamage(float damage)
+    public void takeDamage(int damage)
     {
-        this.health -= damage;
-        if (this.health <= 0) {
-            StartCoroutine(Mort(10));
+        if (!isDead) {
+            this.health -= damage;
+            if (this.health <= 0)
+            {
+                StartCoroutine(Mort(10));
+                isDead = true;
+            }
+            else
+            {
+                animator.SetTrigger("IsTakingDamage");
+            }
         }
-        else
-        {
-            animator.SetTrigger("IsTakingDamage");
-        }
+        
     }
 
     IEnumerator Mort(float secondes)
@@ -98,5 +103,10 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForSeconds(secondes);
         Destroy(this.gameObject);
+    }
+
+    public MonoBehaviour GetMonoBehaviour()
+    {
+        return this;
     }
 }

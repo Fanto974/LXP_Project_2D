@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   itemOffset: {x: 0, y: 0.05, z: 0}
-  itemScale: {x: 1, y: 1, z: 1}
+  itemScale: {x: 0.8, y: 0.8, z: 1}
   standScale: {x: 4, y: 4, z: 4}
 --- !u!61 &2108578016510274782
 BoxCollider2D:

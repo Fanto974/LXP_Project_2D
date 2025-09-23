@@ -2662,7 +2662,7 @@ PrefabInstance:
     - target: {fileID: 2777360762763996195, guid: 36d76ba2d3a6e234f97a939f007c3859, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 42b54dda5a2ebe64e8104b629efa95ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 7215d5ffb7f8a7a408619dadf4c4fef6, type: 2}
     - target: {fileID: 7680116399811160199, guid: 36d76ba2d3a6e234f97a939f007c3859, type: 3}
       propertyPath: m_Name
       value: SoinStand(S)

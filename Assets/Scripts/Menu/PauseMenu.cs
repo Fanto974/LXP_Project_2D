@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     //Inventaire
     public GameObject LogementInventaire;
     public Transform inventoryPanel;
+    public Transform attackEffectPanel;
 
     private void Start()
     {

@@ -9,7 +9,7 @@ public class ArrowController : MonoBehaviour
     public float speed;
     Vector2 dir;
 
-    public float damage = 5;
+    public int damage = 5;
 
     // Start is called before the first frame update
     void Start()
