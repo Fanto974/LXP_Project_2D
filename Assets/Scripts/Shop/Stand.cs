@@ -61,6 +61,7 @@ public class ShopStand : MonoBehaviour
 
     void TryBuy()
     {
+        PlayerAttack PA = FindObjectOfType<PlayerAttack>();
         if (player.CanAfford(item.price))
         {
             // Dépenser l'argent

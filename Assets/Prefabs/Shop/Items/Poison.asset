@@ -16,4 +16,5 @@ MonoBehaviour:
   price: 0
   icon: {fileID: 21300000, guid: e9a19582cae258b48a6229eac45fa75a, type: 3}
   isTheEffectDefinitive: 1
+  isManaCompetences: 1
   AttackEffect: {fileID: 11400000, guid: 7c6f31a153780de4a87f631e8267b29e, type: 2}

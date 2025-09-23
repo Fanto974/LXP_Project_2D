@@ -17,14 +17,20 @@ public class PlayerAttack : MonoBehaviour
     public int currentHealth;
     public Image healthBarImage;
     public Sprite[] healthSprites;
+    public bool isDead = false;
+
+    // Pour le Mana
+    public int maxMana = 100;
+    public int currentMana;
+    public Image manaBarImage;
+    public Sprite[] manaSprites;
 
     // Pour les attaques
-    public GameObject arrowPrefab;
+    public List<AttackEffect> attackEffects = new List<AttackEffect>();
     public Transform DPSZone;
-    public int damage = 10;
     public LayerMask enemyLayer;
     public int range = 5;
-    public List<AttackEffect> attackEffects = new List<AttackEffect>();
+    public int damage = 10;
 
 
 
@@ -35,7 +41,9 @@ public class PlayerAttack : MonoBehaviour
     {
         DPSZone = this.transform.Find("PtAtt");
         currentHealth = maxHealth;
+        currentMana = maxMana;
         UpdateHealthBar();
+        UpdateManaBar();
     }
 
     void Update()
@@ -47,10 +55,16 @@ public class PlayerAttack : MonoBehaviour
             SwordAtt();
         }
 
-        // Pour tester : appuyez sur H pour perdre 10 points de vie
+        // Pour tester : appuyez sur H pour perdre 1 points de vie
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(1);
+        }
+
+        // Pour tester : appuyez sur J pour perdre 10 de mana
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            TakeMana(10);
         }
     }
 
@@ -74,7 +88,10 @@ public class PlayerAttack : MonoBehaviour
                 ec.takeDamage(damage);
                 foreach (var effect in attackEffects)
                 {
-                    effect.Apply(ec);
+                    if (currentMana >= effect.costManaAtt) {
+                        effect.Apply(ec);
+                        TakeMana(effect.costManaAtt);
+                    }
                 }
             }
         }
@@ -84,6 +101,21 @@ public class PlayerAttack : MonoBehaviour
     {
         currentHealth -= amount;
         UpdateHealthBar();
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            isDead = true;
+        }
+    }
+
+    public void TakeMana(int amount)
+    {
+        currentMana -= amount;
+        UpdateManaBar();
+        if (currentMana <= 0)
+        {
+            currentMana = 0;
+        }
     }
 
     public void Heal(int amount)
@@ -93,13 +125,27 @@ public class PlayerAttack : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+
+    public void HMana(int amount)
+    {
+        currentMana += amount;
+        if (currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
     }
 
     public void GainHealth(int amount)
     {
         currentHealth += amount;
         maxHealth += amount;
+    }
+
+    public void GainMana(int amount)
+    {
+        currentMana += amount;
+        maxMana += amount;
     }
 
     public void GainDamage(int amount)
@@ -109,15 +155,24 @@ public class PlayerAttack : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        print($"UpdateHealthBar call | currentHealth={currentHealth}, healthSprites.Length={healthSprites.Length}");
+        if (healthSprites.Length == 0) return;
 
-        print("fonctcall");
-        // Sécurité : éviter erreurs si sprites manquants
-        if (currentHealth >= 0 && currentHealth < healthSprites.Length)
-        {
-            print("fefsef");
-            healthBarImage.sprite = healthSprites[currentHealth];
-        }
+        // Convertit la vie actuelle en index entre 0 et le dernier sprite
+        int index = Mathf.RoundToInt((float)currentHealth / maxHealth * (healthSprites.Length - 1));
+
+        index = Mathf.Clamp(index, 0, healthSprites.Length - 1);
+        healthBarImage.sprite = healthSprites[index];
+    }
+
+    public void UpdateManaBar()
+    {
+        if (manaSprites.Length == 0) return;
+
+        // Convertit la vie actuelle en index entre 0 et le dernier sprite
+        int index = Mathf.RoundToInt((float)currentMana / maxMana * (manaSprites.Length - 1));
+
+        index = Mathf.Clamp(index, 0, manaSprites.Length - 1);
+        manaBarImage.sprite = manaSprites[index];
     }
 
     void OnDrawGizmosSelected()
@@ -126,6 +181,13 @@ public class PlayerAttack : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(DPSZone.position, range);
+    }
+
+    public void AddManaComp(ShopItem Comp)
+    {
+        Competence C = (Competence)Comp;
+        attackEffects.Add(C.AttackEffect);
+        // Tu peux ajouter ici des effets (arme, potion…)
     }
 
     /*

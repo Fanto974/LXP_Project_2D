@@ -14,7 +14,7 @@ public class Améliorations : ShopItem
     public override void ApplyEffect(PlayerManager player)
     {
         player.attack.GainHealth(healthAmount);
-        // Il manque GainMana()
+        player.attack.GainMana(manaAmount);
         player.mouv.GainSpeed(speedAmount);
         player.attack.GainDamage(damageAmount);
     }

@@ -7,6 +7,7 @@ public class PoisonEffect : AttackEffect
     public int damagePerTick = 5;
     public float tickRate = 2f;
     public int numberOfTicks = 3;
+    
 
     public override void Apply(IEffectReceiver target)
     {

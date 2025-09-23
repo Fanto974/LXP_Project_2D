@@ -234,6 +234,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3c96702f6b2319f4c8b1c1c14215b910, type: 3}
   - {fileID: 21300000, guid: a17ec0c5ed1009542b0d1e5304ecd5ab, type: 3}
   - {fileID: 21300000, guid: 92488d315b1ade443902a2217292e25e, type: 3}
+  maxMana: 100
+  currentMana: 0
+  manaBarImage: {fileID: 0}
+  manaSprites:
+  - {fileID: 21300000, guid: 3a7a1906621a4544981519413dfefd74, type: 3}
+  - {fileID: 21300000, guid: 7d5913e9348f82e438fe96d6691ab761, type: 3}
+  - {fileID: 21300000, guid: 491513375512ecd48a26e619dedb4589, type: 3}
+  - {fileID: 21300000, guid: 5571bb7a8f88b174b96a1389c9351897, type: 3}
+  - {fileID: 21300000, guid: 4a6e0e34793b981478fc009ba04f3979, type: 3}
+  - {fileID: 21300000, guid: 32d63d6875e901e48b5f713fbcc91639, type: 3}
+  - {fileID: 21300000, guid: ceac12b28e4094d48be8c36a482e1f0e, type: 3}
+  - {fileID: 21300000, guid: d73bff428b9b9624ca772b6906ce5f0e, type: 3}
+  - {fileID: 21300000, guid: 691593c8c1e791742bca85044f7db117, type: 3}
+  - {fileID: 21300000, guid: 7d878bfc4e4d4f048855746f3f586b4c, type: 3}
+  - {fileID: 21300000, guid: 512121ed73085344f98ff26c2226a939, type: 3}
   arrowPrefab: {fileID: 1068231550456693747}
   DPSZone: {fileID: 0}
   damage: 10
