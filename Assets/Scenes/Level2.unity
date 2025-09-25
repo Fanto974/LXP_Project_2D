@@ -533027,16 +533027,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7741553595623270387, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 384
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741553595623270387, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 39
+      value: 207
       objectReference: {fileID: 0}
     - target: {fileID: 8272340170788047749, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8763410761722775703, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763410761722775703, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2349401622827356908, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
+    - {fileID: 9188298409366261108, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5985076223577926863, guid: 2eab0d18a4a933644a09bde3789c198c, type: 3}
       insertIndex: -1
@@ -533574,7 +533587,7 @@ MonoBehaviour:
   nav: {fileID: 979246400}
   surface: {fileID: 0}
   fightRoomPrefabs:
-  - {fileID: 486574537809443431, guid: a8415b49509ef1c4c81d9b0b4c993d3a, type: 3}
+  - {fileID: 486574537809443431, guid: 02e6c6ed587f5d447a4a64b1c6c34e92, type: 3}
   itemsRoomPrefabs: []
   chessRoomPrefabs: []
   portalRoomPrefabs:
